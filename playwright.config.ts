@@ -18,7 +18,8 @@ export default defineConfig({
     headless: false,
     trace: 'on-first-retry',
     screenshot:'only-on-failure',
-    video:'on'
+    video:'on',
+    testIdAttribute: 'data-test-id'
   },
 
   /* Configure projects for major browsers */
