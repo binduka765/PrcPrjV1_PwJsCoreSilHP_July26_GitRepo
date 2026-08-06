@@ -38,4 +38,16 @@ test("tc2:pet disease svg Graph Ele search ele test", async ({ page }) => {
   }
 
   await page.waitForTimeout(2000);
+
+  //window.getComputedStyle(document.querySelector('label[for="input-firstname"]'), '::before').getPropertyValue('content');
 });
+
+test('tc3:pseudo element test', async ({page})=>{
+   await page.goto('https://naveenautomationlabs.com/opencart/index.php?route=account/register');
+
+   await page.evaluate(()=>{
+    return window.getComputedStyle(document.querySelector('label[for="input-firstname"]'),'::before').getPropertyValue('content');
+   })
+
+   await page.waitForTimeout(2000); 
+})
