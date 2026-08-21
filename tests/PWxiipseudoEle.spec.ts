@@ -59,11 +59,12 @@ test('tc2:Open Cart Reg Page-pseudo ele test-NOT FIXED in sess13', async ({page}
         let title = await page.evaluate(()=>{
             alert('hi this is my alert');
             return document.title;
+          
         });
 
         console.log(title);
 
-        await page.waitForTimeout(5000);
+        await page.pause();
 
         //reasons:as per chat gpt between this code and below FIXED code
         //         You directly call page.evaluate() with an anonymous function.
@@ -88,6 +89,23 @@ test('tc2:Open Cart Reg Page-pseudo ele test-FIXED', async ({ page }) => {
   }, labelHandle);
 
   console.log(content);
+
+  await page.waitForTimeout(5000);
+});
+
+test('tc2:Open Cart Reg Page-pseudo ele color content test-FIXED-NO output needs a CHECK', async ({ page }) => {
+  await page.goto('https://naveenautomationlabs.com/opencart/index.php?route=account/register');
+
+  // Wait for the label element to be present
+  const labelHandle = await page.waitForSelector('label[for="input-firstname"]');
+
+  // Evaluate in page context to get the computed style of the pseudo-element
+  const colorContent = await page.evaluate((el) => {
+    const style = window.getComputedStyle(el, '::before');
+    return style.getPropertyValue('colorContent');
+  }, labelHandle);
+
+  console.log(colorContent);
 
   await page.waitForTimeout(5000);
 });
