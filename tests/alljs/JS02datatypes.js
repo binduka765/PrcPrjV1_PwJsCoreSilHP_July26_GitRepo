@@ -1,6 +1,7 @@
 //data types: types of data:
 //all vars stored on RAM: read access memory
 //shud be declared using reserved keywords or identifiers-[let, var, const]--at RT will be decided the type of it
+//to activate run icon:click on settings - extensions - code runner- select .run and install
 
 //1.primitive data types:simple | stack | not part of obj/ref | fixed memory | No garbage collector
 //2. non-primitive data types: object/References/Class/Arrays/Functions/Interfaces | dynamic memory | heap memory
@@ -66,6 +67,7 @@ let num1 = num + 1;
 console.log(num1);//9007199254740992
 
 //4.BigInt: ends with an n
+//no fixed size for Bigint
 let amt = 9007199254740993n //big integer
 console.log(typeof amt);//bigint
 
@@ -83,6 +85,32 @@ console.log(pop); //100n -- bigInt
 console.log(typeof pop);//bigint
 
 console.log(pop/2n);//50n
+
+//5. null: nothing/no value
+//size: 0 -8 bytes - depends on each engine
+let myName = null;
+let data = null;
+console.log(data);
+console.log(typeof data);//object -- JS bug since obj is non-primitive whereas null is primitive so conflicted
+
+//6.undefined:
+//size: 0 -8 bytes - depends on each engine
+let v;
+console.log(v);//undefined
+
+var c;
+console.log(typeof c);//undefined
+
+let sd = "";
+console.log(typeof sd);//string
+
+let st = "null";
+console.log(typeof st);//string
+
+let qa = undefined;
+console.log(typeof qa);
+
+
 
 
 
